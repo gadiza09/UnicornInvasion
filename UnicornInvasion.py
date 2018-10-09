@@ -1,7 +1,7 @@
 import sys
 
 import pygame
-
+from pygame.sprite import Group
 from settings import Settings
 
 from unicorn import Unicorn
@@ -15,7 +15,6 @@ def run_game():
     pygame.display.set_caption("Unicorn Invasion")
 
     unicorn = Unicorn(ai_settings, screen)
-
     bullets = Group()
 
     bg_color = (249, 180, 222)
@@ -29,7 +28,7 @@ def run_game():
         for bullet in bullets.copy():
             if bullet.rect.bottom <= 0:
                 bullets.remove(bullet)
-        print(len(bullets))
+        # print(len(bullets))
 
         gf.update_screen(ai_settings, screen, unicorn, bullets)
 

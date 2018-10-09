@@ -2,7 +2,7 @@ import pygame
 
 class Unicorn():
 
-    def __init__(self, screen):
+    def __init__(self, ai_settings, screen):
         self.screen = screen
         self.ai_settings = ai_settings
         self.image = pygame.image.load("images/unicorn.bmp")
@@ -22,7 +22,7 @@ class Unicorn():
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.center += self.ai_settings.unicorn_speed_factor
         if self.moving_left and self.rect.left> 0:
-            self.rect.centerx -= self.ai_settings.unicorn_speed_factor
+            self.center -= self.ai_settings.unicorn_speed_factor
 
         self.rect.centerx = self.center
 
