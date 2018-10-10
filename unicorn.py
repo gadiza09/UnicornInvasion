@@ -1,8 +1,12 @@
 import pygame
 
-class Unicorn():
+from pygame.sprite import Sprite
+
+class Unicorn(Sprite):
 
     def __init__(self, ai_settings, screen):
+        super(Unicorn, self).__init__()
+
         self.screen = screen
         self.ai_settings = ai_settings
 

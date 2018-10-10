@@ -7,5 +7,10 @@ class GameStats():
 
         self.game_active = False
 
+        self.high_score = 0
+
+
     def reset_stats(self):
-        self.unicorn_left = self.ai_settings.unicorn_limit
+        self.unicorns_left = self.ai_settings.unicorn_limit
+        self.score = 0
+        self.level = 1

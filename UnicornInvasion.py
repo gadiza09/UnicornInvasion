@@ -8,6 +8,8 @@ from settings import Settings
 
 from game_stats import GameStats
 
+from scoreboard import Scoreboard
+
 from unicorn import Unicorn
 
 from rainbow import Rainbow
@@ -27,6 +29,8 @@ def run_game():
 
     stats = GameStats(ai_settings)
 
+    sb = Scoreboard(ai_settings, screen, stats)
+
     bg_color = (249, 180, 222)
 
     unicorn = Unicorn(ai_settings, screen)
@@ -40,13 +44,14 @@ def run_game():
 
     while True:
 
-        gf.check_events(ai_settings, screen, unicorn, bullets)
+        gf.check_events(ai_settings, screen, stats, sb, play_button, unicorn, rainbows, bullets)
 
         if stats.game_active:
             unicorn.update()
-            gf.update_bullets(ai_settings, screen, unicorn, rainbows, bullets)
-            gf.update_rainbows(ai_settings, stats, screen, unicorn, rainbows, bullets)
-        gf.update_screen(ai_settings, screen, stats, unicorn, rainbows, bullets, play_button)
+            gf.update_bullets(ai_settings, screen, stats, sb, unicorn, rainbows, bullets)
+            gf.update_rainbows(ai_settings, stats, screen, sb, unicorn, rainbows, bullets)
+
+        gf.update_screen(ai_settings, screen, stats, sb, unicorn, rainbows, bullets, play_button)
 
 
 
