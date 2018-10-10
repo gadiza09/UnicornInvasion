@@ -8,7 +8,10 @@ class Bullet(Sprite):
         super(Bullet, self).__init__()
         self.screen = screen
 
-        self.rect = pygame.Rect(0, 0, ai_settings.bullet_width, ai_settings.bullet_height)
+        self.image = pygame.image.load("images/star.bmp")
+
+        # self.rect = pygame.Rect(0, 0, ai_settings.bullet_width, ai_settings.bullet_height)
+        self.rect = self.image.get_rect()
         self.rect.centerx = unicorn.rect.centerx
         self.rect.top = unicorn.rect.top
 
@@ -22,4 +25,5 @@ class Bullet(Sprite):
         self.rect.y = self.y
 
     def draw_bullet(self):
-        pygame.draw.rect(self.screen, self.color, self.rect)
+        # pygame.draw.rect(self.screen, self.color, self.rect)
+        self.screen.blit(self.image, self.rect)

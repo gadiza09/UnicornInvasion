@@ -41,6 +41,8 @@ def run_game():
 
     # rainbow = Rainbow(ai_settings, screen)
 
+    pygame.mixer.music.load("song/UnicornsSong.mp3")
+    pygame.mixer.music.play(-1, 0.0)
 
     while True:
 
