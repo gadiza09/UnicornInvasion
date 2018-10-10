@@ -14,12 +14,16 @@ from rainbow import Rainbow
 
 import game_functions as gf
 
+from button import Button
+
 
 def run_game():
     pygame.init()
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Unicorn Invasion")
+
+    play_button = Button(ai_settings, screen, "PLAY")
 
     stats = GameStats(ai_settings)
 
@@ -42,9 +46,8 @@ def run_game():
             unicorn.update()
             gf.update_bullets(ai_settings, screen, unicorn, rainbows, bullets)
             gf.update_rainbows(ai_settings, stats, screen, unicorn, rainbows, bullets)
-            #gf.update_rainbow(ai_settings, stats, screen, unicorn, rainbow, bullets)
-        gf.update_screen(ai_settings, screen, unicorn, rainbows, bullets)
-        # print(rainbows)
+        gf.update_screen(ai_settings, screen, stats, unicorn, rainbows, bullets, play_button)
+
 
 
 run_game()

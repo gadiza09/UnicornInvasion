@@ -45,12 +45,15 @@ def fire_bullet(ai_settings, screen, unicorn, bullets):
         bullets.add(new_bullet)
 
 
-def update_screen(ai_settings, screen, unicorn, rainbows, bullets):
+def update_screen(ai_settings, screen, stats, unicorn, rainbows, bullets, play_button):
     screen.fill(ai_settings.bg_color)
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     unicorn.blitme()
     rainbows.draw(screen)
+
+    if not stats.game_active:
+        play_button.draw_button()
 
     pygame.display.flip()
 
@@ -148,21 +151,4 @@ def create_fleet(ai_settings, screen, unicorn, rainbows):
     for row_number in range(number_rows):
         for rainbow_number in range(number_rainbows_x):
             create_rainbow(ai_settings, screen, rainbows, rainbow_number, row_number)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

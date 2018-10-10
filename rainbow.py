@@ -7,7 +7,6 @@ class Rainbow(Sprite):
         super(Rainbow, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
-        # E:\Invasion\images\rainbow.bmp
         self.image = pygame.image.load("images/rainbow.bmp")
         self.rect = self.image.get_rect()
 
